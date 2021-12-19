@@ -10,7 +10,16 @@ def max_sum_of_2(a: int, b: int, c: int) -> int:
 
 if __name__ == "__main__":
     a = int(input("a = "))
-    b = int(input("a = "))
-    c = int(input("a = "))
+    b = int(input("b = "))
+    c = int(input("c = "))
 
-    print(max_sum_of_2(a, b, c))
+if a >= b and b >= c:
+    max_sum_of_2 = a + b
+    print(max_sum_of_2)
+elif a >= b and c >= b:
+    max_sum_of_2 = a + c
+    print(max_sum_of_2)
+else:
+    max_sum_of_2 = b + c
+    print(max_sum_of_2)
+
