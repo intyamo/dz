@@ -8,13 +8,13 @@ from math import pi
 
 
 def perimeter(diameter):
+    perim = pi * diameter
     return pi * diameter
 
 
 def area(diameter):
-    r = diameter / 2
-
-    return pi * r ** 2
+    S = pi * (diameter / 2) ** 2
+    return pi * (diameter / 2) ** 2
 
 
 if __name__ == "__main__":
