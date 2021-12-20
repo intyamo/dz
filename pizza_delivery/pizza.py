@@ -33,7 +33,7 @@ def find_floor(floors, n):
     floors - число этажей в доме
     n - номер квартиры
     """
-    entrance_calc = entrance * floors * FLATS_PER_FLOOR
+    entrance_calc = find_entrance(floors, n) * floors * FLATS_PER_FLOOR
     floor = floors + 1
     while entrance_calc >= n:
         entrance_calc -= FLATS_PER_FLOOR
