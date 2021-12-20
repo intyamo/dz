@@ -19,8 +19,13 @@ def find_entrance(floors, n):
     floors - число этажей в доме
     n - номер квартиры
     """
-
-    return 0
+    entrance_one = floors * FLATS_PER_FLOOR
+    entrance_summ = 0
+    entrance = 0
+    while n > entrance_summ:
+        entrance_summ += entrance_one
+        entrance += 1
+    return entrance
 
 
 def find_floor(floors, n):
@@ -28,8 +33,12 @@ def find_floor(floors, n):
     floors - число этажей в доме
     n - номер квартиры
     """
-
-    return 0
+    entrance_calc = entrance * floors * FLATS_PER_FLOOR
+    floor = floors + 1
+    while entrance_calc >= n:
+        entrance_calc -= FLATS_PER_FLOOR
+        floor -= 1
+    return floor
 
 
 if __name__ == "__main__":
@@ -39,3 +48,4 @@ if __name__ == "__main__":
     entrance = find_entrance(floors, flat_num)
     floor = find_floor(floors, flat_num)
     print(entrance, floor)
+
