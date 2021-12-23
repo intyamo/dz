@@ -20,9 +20,9 @@
 
 def is_leap_year(year: int) -> bool:
     if (year % 4) == 0 and (year % 100) != 0 or (year % 400) == 0:
-        print("Год високосный")
+        return True
     else:
-        print("Год не високосный")
+        return False
    # if year % 400 == 0:
    #     print("високосный", year)
    # elif year % 100 == 0:
