@@ -11,7 +11,22 @@
 
 
 def end_of_lesson(n: int) -> (int, int):
-    return 0, 0
+    hours = 8
+    minutes = 0
+    h = 0
+    for i in range(1, n+1):
+        if i % 2 == 0:
+            minutes +=60
+        else:
+            minutes +=50
+    if n % 2 == 0:
+        minutes -= 15
+    else:
+        minutes -= 5
+    h += minutes//60
+    minutes -= h*60
+    hours += h
+    return hours, minutes
 
 
 if __name__ == "__main__":
