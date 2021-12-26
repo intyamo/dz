@@ -13,6 +13,13 @@
 - leap_year
 - lessons
 
+### 3. Строки `str`
+
+- str_remove_fragment
+- password_checker
+- chess_fen
+- atbash_cipher
+
 ## Краткая инструкция
 
 1. Установите `git` и `pytest`
