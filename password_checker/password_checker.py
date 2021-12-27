@@ -15,7 +15,33 @@
 - `string.digits`
 - `string.punctuation`
 """
-
+import string
 
 def is_strong_password(pwd: str) -> bool:
-    pass
+    n = len(pwd)
+    b = 0
+    c = 0
+    c1 = 0
+    d = 0
+    e = string.digits
+    f = string.ascii_uppercase
+    f1 = string.ascii_lowercase
+    g = string.punctuation
+    for i in range(0, n):
+        a = pwd[i]
+        if e.count(a) >= 1:
+            b += 1
+        elif f.count(a) >= 1:
+            c += 1
+        elif f1.count(a) >= 1:
+            c1 += 1
+        elif g.count(a) >= 1:
+            d += 1
+    if b >= 1 and c >= 1 and c1 >= 1 and d >= 1 and n >= 10:
+        is_strong_password = True
+    else: is_strong_password = False
+    return is_strong_password
+
+# pwd = input()
+# x = is_strong_password(pwd)
+# print(x)
