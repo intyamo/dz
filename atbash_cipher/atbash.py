@@ -16,9 +16,19 @@
 BLOCK_SIZE = 5
 
 
+alph = "abcdefghijklmnopqrstuvwxyz"
+reverse_alph = "zyxwvutsrqponmlkjihgfedcba"
+
+
 def atbash_encode(text: str) -> str:
-    pass
+    del_ = text.replace(' ', '').replace(',', '').replace('\n', '').replace('\t', '').replace('.', '').lower()
+    a = str.maketrans(alph, reverse_alph)
+    b = del_.translate(a)
+    new_text = " ".join([b[i:i +5] for  i in range(0,len(b),5)])
+    return new_text
 
 
 def atbash_decode(cipher: str) -> str:
-    pass
+    a = str.maketrans(reverse_alph,alph)
+    text = cipher.replace(' ', '').translate(a)
+    return text
