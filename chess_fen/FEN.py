@@ -41,8 +41,60 @@ QUEEN_VAL = 9  # ферзь
 
 
 def calc_chess_balance(fen: str) -> int:
-    pass
+    a = fen.find(' ')
+    srez = fen[:a]
+    n = len(srez)
+    wh = 0
+    bl = 0
+    for i in range(0, n):
+        sim = srez[i]
+        if sim == 'P':
+            wh += PAWN_VAL
+        elif sim == 'p':
+            bl += PAWN_VAL
+        elif sim == 'B' or sim == 'N':
+            wh += KNIGHT_VAL
+        elif sim == 'b' or sim == 'n':
+            bl += KNIGHT_VAL
+        elif sim == 'R':
+            wh += ROOK_VAL
+        elif sim == 'r':
+            bl += ROOK_VAL
+        elif sim == 'Q':
+            wh += QUEEN_VAL
+        elif sim == 'q':
+            bl += QUEEN_VAL
+    calc_chess_balance = wh - bl
+    return calc_chess_balance
 
 
 def chess_board(fen: str) -> str:
-    pass
+    chisl_s = fen.find(' ')
+    matric = fen[:(chisl_s + 1)]
+    chisl_matric = len(matric)
+    board = ''
+    aboard = ''
+    for f in range(0, chisl_matric):
+        simvol = matric[f]
+        if len(aboard) == 16:
+            board += aboard.lstrip() + '\n'
+            aboard = ''
+        else:
+            if simvol.isdecimal() == True:
+                aboard += ' .' * int(simvol)
+            elif simvol == '/':
+                aboard += ''
+            else:
+                aboard += ' ' + simvol
+    chess = board.splitlines()
+    chess_board = f'''\
+{chess[0]}
+{chess[1]}
+{chess[2]}
+{chess[3]}
+{chess[4]}
+{chess[5]}
+{chess[6]}
+{chess[7]}\
+'''
+    return chess_board
