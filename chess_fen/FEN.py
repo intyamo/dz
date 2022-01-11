@@ -33,63 +33,72 @@ P P P P P P P P
 R N B Q K B N R
 ```
 """
+import re
 
-PAWN_VAL = 1  # пешка
-KNIGHT_VAL = BISHOP_VAL = 3  # конь и слон
-ROOK_VAL = 5  # ладья
-QUEEN_VAL = 9  # ферзь
+
 
 # ready
 def calc_chess_balance(fen: str) -> int:
-    balance = 0
-    for i in fen:
-        if i == 'Q':
-            balance += QUEEN_VAL
-        elif i == 'R':
-            balance += ROOK_VAL
-        elif i == 'B' or i == 'N':
-            balance += BISHOP_VAL
-        elif i == 'P':
-            balance += PAWN_VAL
-        elif i == 'q':
-            balance -= QUEEN_VAL
-        elif i == 'r':
-            balance -= ROOK_VAL
-        elif i == 'b' or i == 'n':
-            balance -= BISHOP_VAL
-        elif i == 'p':
-            balance -= PAWN_VAL
-    return balance
+    PAWN_VAL = 1  # пешка
+    KNIGHT_VAL = BISHOP_VAL = 3  # конь и слон
+    ROOK_VAL = 5  # ладья
+    QUEEN_VAL = 9  # ферзь
+    a = fen.find(' ')
+    slice = fen[:a]
+    n = len(slice)
+    while_ = 0
+    black = 0
+    for i in range(0, n):
+        sim = slice[i]
+        if sim == 'P':
+            while_ += PAWN_VAL
+        elif sim == 'p':
+            black += PAWN_VAL
+        elif sim == 'B' or sim == 'N':
+            while_ += KNIGHT_VAL
+        elif sim == 'b' or sim == 'n':
+            black += KNIGHT_VAL
+        elif sim == 'R':
+            while_ += ROOK_VAL
+        elif sim == 'r':
+            black += ROOK_VAL
+        elif sim == 'Q':
+            while_ += QUEEN_VAL
+        elif sim == 'q':
+            black += QUEEN_VAL
+    chess_balance = while_ - black
+    return chess_balance
 
 
 def chess_board(fen: str) -> str:
-    index_el = fen.find(' ')
-    field = fen[:(index_el + 1)]
-    chisl_matric = len(field)
-    board = ''
-    aboard = ''
+    search = fen.find(' ')
+    slice = fen[:(search + 1)]
+    chisl_matric = len(slice)
+    new_text = ''
+    string = ''
     for f in range(0, chisl_matric):
-        element_fen = field[f]
-        if len(aboard) == 16:
-            board += aboard.lstrip() + '\n'
-            aboard = ''
+        simvol = slice[f]
+        if len(string) == 16:
+            new_text += string.lstrip() + '\n'
+            string = ''
         else:
-            if element_fen.isdecimal() == True:
-                aboard += ' .' * int(element_fen)
-            elif element_fen == '/':
-                aboard += ''
+            if simvol.isdecimal() == True:
+                string += ' .' * int(simvol)
+            elif simvol == '/':
+                string += ''
             else:
-                aboard += ' ' + element_fen
-    chess = board.splitlines()
+                string += ' ' + simvol
+    chess = new_text.splitlines()
     chess_board = f'''\
-    {chess[0]}
-    {chess[1]}
-    {chess[2]}
-    {chess[3]}
-    {chess[4]}
-    {chess[5]}
-    {chess[6]}
-    {chess[7]}\
-    '''
+{chess[0]}
+{chess[1]}
+{chess[2]}
+{chess[3]}
+{chess[4]}
+{chess[5]}
+{chess[6]}
+{chess[7]}\
+'''
     return chess_board
-print(chess_board("4r2k/q5bp/4R3/4P1P1/P1Qn3R/2N5/1r4KP/8 w - - 1 43"))
+
+
