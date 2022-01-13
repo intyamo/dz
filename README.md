@@ -20,6 +20,13 @@
 - chess_fen
 - atbash_cipher
 
+### 4. Циклы и итерируемые объекты - 1
+
+- hamming_distance
+- fizzbuzz
+- polygon
+- bible
+
 ## Краткая инструкция
 
 1. Установите `git` и `pytest`
@@ -60,7 +67,7 @@
     └── test_circle.py  # а это тесты
     ```
 
-    Вам необходимо реализовать только функции,
+   Вам необходимо реализовать только функции,
 
 5. Проверьте тесты
 
@@ -77,8 +84,8 @@
 
    Перед коммитом отформатируйте код
 
-    - через PyCharm (`Code -> Reformat code`)
-    - или [`black`](https://github.com/psf/black)
+  - через PyCharm (`Code -> Reformat code`)
+  - или [`black`](https://github.com/psf/black)
 
     ```sh
     # установить (один раз)
