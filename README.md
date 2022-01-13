@@ -27,6 +27,13 @@
 - polygon
 - bible
 
+### 5. Циклы и итерируемые объекты - 2
+
+- fibonacci
+- numeric_palindrom
+- golden_ratio
+- not_last
+
 ## Краткая инструкция
 
 1. Установите `git` и `pytest`
