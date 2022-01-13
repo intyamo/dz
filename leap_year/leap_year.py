@@ -12,14 +12,17 @@
 # Но год, кратный 400 - всё равно високосный.
 #
 # https://ru.wikipedia.org/wiki/Високосный_год
-#
+
 # Попробуйте решить данное задание двумя способами:
 #   - через if / elif / else
 #   - через одно логическое выражение (and, or, not)
 
 
 def is_leap_year(year: int) -> bool:
-    pass
+    if (year % 4 == 0) and (year % 100 != 0) or (year % 400 == 0):
+        return True
+    else:
+        return False
 
 
 if __name__ == "__main__":
