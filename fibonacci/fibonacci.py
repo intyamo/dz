@@ -9,7 +9,9 @@ https://en.wikipedia.org/wiki/Fibonacci_number
 
 
 def fibonacci(n: int) -> int:
-    if n < 0:
-        raise ValueError("Index must be >= 0")
+    fib = [0, 1]+[0]*(n-1)
+    for i in range(2, n+1):
+        fib[i] = fib[i-1] + fib[i - 2]
+    return fib[n]
 
-    pass
+
