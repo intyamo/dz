@@ -4,13 +4,17 @@
 # А внук Вася любит математику и знает, что периметр и площадь блина можно найти по диаметру сковородки.
 # Напишите программу, которая поможет Васе проверить его вычисления.
 
+from math import pi
+
 
 def perimeter(diameter):
-    pass
+    return pi * diameter
 
 
 def area(diameter):
-    pass
+    r = diameter / 2
+
+    return pi * r ** 2
 
 
 if __name__ == "__main__":
