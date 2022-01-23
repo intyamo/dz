@@ -13,4 +13,12 @@ https://en.wikipedia.org/wiki/Fizz_buzz
 
 
 def fizzbuzz(n: int) -> str:
-    pass
+    lst = ["FizzBuzz", "Fizz", "Buzz", "1"]
+    if n % 3 == 0 and n % 5 == 0:
+        return lst[0]
+    elif n % 3 == 0:
+        return lst[1]
+    elif n % 5 == 0:
+        return lst[2]
+    elif n == 1:
+        return lst[3]
