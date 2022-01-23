@@ -26,4 +26,16 @@ R = 3.0
 
 
 def polygon_vertices(n: int, r: float = R) -> list:
-    pass
+    ugol = 2 * pi / n
+    ugol_0 = 0
+    koord = []
+    for i in range(n):
+        y = cos(ugol_0) * R
+        x = sin(ugol_0) * R
+        koord.append((x, y))
+        ugol_0 += ugol
+    return koord
+
+# n = int(input())
+# itog = polygon_vertices(n, R)
+# print(itog)

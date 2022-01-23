@@ -13,4 +13,16 @@ https://en.wikipedia.org/wiki/Fizz_buzz
 
 
 def fizzbuzz(n: int) -> str:
-    pass
+    if n % 3 == 0 and n % 5 == 0:
+        fraza = 'FizzBuzz'
+    elif n % 3 == 0:
+        fraza = 'Fizz'
+    elif n % 5 == 0:
+        fraza = 'Buzz'
+    else:
+        fraza = str(n)
+    return fraza
+
+# n = int(input())
+# itog = fizzbuzz(n)
+# print(itog)
