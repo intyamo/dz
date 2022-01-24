@@ -28,4 +28,4 @@ def is_leap_year(year: int) -> bool:
 if __name__ == "__main__":
     year = int(input("Введите год: "))
 
-    print(is_leap_year(year))
+
