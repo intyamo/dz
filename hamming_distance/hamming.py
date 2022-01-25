@@ -23,5 +23,8 @@ strand_b = CATCGTAATGACGGCCT
 def hamming_distance(strand_a: str, strand_b: str) -> int:
     if len(strand_a) != len(strand_b):
         raise ValueError("Цепочки ДНК должны быть одинаковой длины")
-
-    pass
+    distance = 0
+    for elem in range(len(strand_a)):
+        if strand_a[elem] != strand_b[elem]:
+            distance += 1
+    return distance
