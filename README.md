@@ -34,6 +34,13 @@
 - golden_ratio
 - not_last
 
+### 6. Функции
+
+- rectangles
+- get_ranges
+- chess_moves
+- decorators
+
 ## Краткая инструкция
 
 1. Установите `git` и `pytest`
@@ -91,15 +98,15 @@
 
    Перед коммитом отформатируйте код
 
-  - через PyCharm (`Code -> Reformat code`)
-  - или [`black`](https://github.com/psf/black)
+- через PyCharm (`Code -> Reformat code`)
+- или [`black`](https://github.com/psf/black)
 
-    ```sh
-    # установить (один раз)
-    pip install black
+  ```sh
+  # установить (один раз)
+  pip install black
 
-    # отформатировать нужные файлы
-    black circle/circle.py pizza_delivery/pizza.py
-    ```
+  # отформатировать нужные файлы
+  black circle/circle.py pizza_delivery/pizza.py
+  ```
 
 7. Открыть Pull Request (PR) на GitHub
