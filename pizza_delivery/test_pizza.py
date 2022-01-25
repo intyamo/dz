@@ -33,7 +33,7 @@ def test_first_entrance_last_flat():
 
 def test_first_flat_of_entrance():
     # первая квартира 2 подъезда
-    n = FLOORS * FLATS_PER_FLOOR + 1
+    n = F LOORS * FLATS_PER_FLOOR + 1
 
     assert find_entrance(FLOORS, n) == 2
     assert find_floor(FLOORS, n) == 1
