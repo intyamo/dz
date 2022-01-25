@@ -5,7 +5,7 @@
 # Номинальная стоимость монет: a, b и с тугриков.
 
 def max_sum_of_2(a: int, b: int, c: int) -> int:
-    pass
+    return max (a + b, a + c, b + c)
 
 
 if __name__ == "__main__":

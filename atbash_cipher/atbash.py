@@ -14,11 +14,25 @@
 """
 
 BLOCK_SIZE = 5
+alf = 'abcdefghijklmnopqrstuvwxyz'
+alf_rev = 'zyxwvutsrqponmlkjihgfedcba'
 
 
 def atbash_encode(text: str) -> str:
-    pass
+    ttab = str.maketrans(alf, alf_rev)
+    text = str(text.replace('.', '').replace('\n', '').replace('\t', '').replace(',', '').replace(' ', '').lower()
+                     .translate(ttab)
+                     )
+    ready_text = ' '.join([text[i:i+5] for i in range(0, len(text), 5)])
+    print(ready_text)
+    return ready_text
 
 
 def atbash_decode(cipher: str) -> str:
-    pass
+    ttab = str.maketrans(alf_rev, alf)
+    text = cipher.replace(' ', '').translate(ttab)
+
+    return text
+
+
+
