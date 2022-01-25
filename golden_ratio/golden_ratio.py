@@ -21,11 +21,24 @@ def fib_pair_gen():
     """
     Generator to produce Fibonacci numbers indefinitely.
     """
-    pass
+    a = 0
+    b = 1
+    while True:
+        a, b = b, a + b
+        yield a, b
 
 
 def fib_phi_calc(precision: float) -> (int, int):
     """
     Returns 2 consecutive Fibonacci numbers to calculate Golden Ratio with a given precision.
     """
-    pass
+
+    for i in fib_pair_gen():
+        z = abs((i[1] / i[0]) - GOLDEN)
+        if not z > precision:
+            func = i
+            break
+    return func
+
+# itog = fib_phi_calc(0.000_001)
+# print(itog)
