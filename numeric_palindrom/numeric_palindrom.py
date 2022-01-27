@@ -8,7 +8,15 @@
 
 
 def is_palindrom(n: int) -> bool:
+    v = 0
+    m = n
     if n <= 0:
         raise ValueError("Number must be a positive integer")
-
-    pass
+    while m > 0:
+        a = m % 10
+        v = (v * 10) + a
+        m = m // 10
+    if v == n:
+        return True
+    else:
+        return False
