@@ -10,4 +10,32 @@
 
 
 def get_ranges(l: list) -> str:
-    pass
+    if l == []:
+        result_1 = ''
+    else:
+        result = []
+        result_1 = []
+        for i in range(len(l)):
+            if i == 0:
+                result.append(l[i])
+                v = l[i]
+            elif l[i] == (v + 1):
+                result.append(l[i])
+                v = l[i]
+            else:
+                if len(result) == 1:
+                    result_1.append(str(result[0]))
+                else:
+                    result_1.append(str(result[0]) + '-' + str(result[-1]))
+                result = []
+                result.append(l[i])
+                v = l[i]
+        if len(result) == 1:
+            result_1.append(str(result[0]))
+        else:
+            result_1.append(str(result[0]) + '-' + str(result[-1]))
+        result_1 = ', '.join(result_1)
+    return result_1
+
+# l = []
+# print(get_ranges(l))
