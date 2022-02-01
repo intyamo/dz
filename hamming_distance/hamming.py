@@ -23,5 +23,13 @@ strand_b = CATCGTAATGACGGCCT
 def hamming_distance(strand_a: str, strand_b: str) -> int:
     if len(strand_a) != len(strand_b):
         raise ValueError("Цепочки ДНК должны быть одинаковой длины")
+    Hd = 0
+    for i in range(len(strand_a)):
+        if strand_a[i] != strand_b[i]:
+            Hd += 1
+    return Hd
 
-    pass
+
+strand_a = str(input('Введите первое ДНК - '))
+strand_b = str(input('Введите второе ДНК - '))
+print('Расстояние Хэмминга - ', hamming_distance(strand_a, strand_b))
