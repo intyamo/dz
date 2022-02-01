@@ -22,8 +22,15 @@ r"""
 
 from math import pi, sin, cos
 
-R = 3.0
+
+def polygon_vertices(n: int, r: float) -> list:
+    alfa = (2 * pi) / n
+    point = [(0.0, r)]
+    for i in range(1, n):
+        point += [(round(sin(alfa * i) * r, 1), round(cos(alfa * i) * r, 1))]
+    return point
 
 
-def polygon_vertices(n: int, r: float = R) -> list:
-    pass
+n = int(input('Введите число вершин - '))
+r = float(input('введите R - '))
+print(polygon_vertices(n, r))

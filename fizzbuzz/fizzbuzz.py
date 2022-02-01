@@ -13,4 +13,15 @@ https://en.wikipedia.org/wiki/Fizz_buzz
 
 
 def fizzbuzz(n: int) -> str:
-    pass
+    if int(n) % 3 == 0 and int(n) % 5 != 0:
+        return 'Fizz'
+    elif int(n) % 5 == 0 and int(n) % 3 != 0:
+        return 'Buzz'
+    elif int(n) % 5 == 0 and int(n) % 3 == 0:
+        return 'FizzBuzz'
+    else:
+        return 'Ни то ни сё'
+
+
+n = input('Введите число - ')
+print('Число ', str(n), ' - ', fizzbuzz(int(n)))

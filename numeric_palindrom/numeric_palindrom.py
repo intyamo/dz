@@ -11,4 +11,19 @@ def is_palindrom(n: int) -> bool:
     if n <= 0:
         raise ValueError("Number must be a positive integer")
 
-    pass
+    n1 = 0
+    n2 = n
+    while n2 > 0:
+        digit = n2 % 10
+        n2 = n2 // 10
+        n1 = n1 * 10
+        n1 = n1 + digit
+
+    if n == n1:
+        return True
+    else:
+        return False
+
+
+n = int(input('введите число - '))
+print(is_palindrom(n))

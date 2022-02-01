@@ -12,4 +12,15 @@ def fibonacci(n: int) -> int:
     if n < 0:
         raise ValueError("Index must be >= 0")
 
-    pass
+    a = 0
+    b = 1
+    if n == 0:
+        b = 0
+    else:
+        for i in range(n - 1):
+            a, b = b, a + b
+    return b
+
+
+n = int(input('введите n-ое число - '))
+print(f'{n}-е число Фибоначчи равно', fibonacci(n))
