@@ -8,8 +8,6 @@
 - [2, 3, 8, 9]) -> "2-3, 8-9"
 """
 
-from itertools import groupby
-from operator import itemgetter
 
 
 def get_ranges(l: list) -> str:
