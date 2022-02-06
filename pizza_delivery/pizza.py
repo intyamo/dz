@@ -15,21 +15,13 @@ FLATS_PER_FLOOR = 4
 
 
 def find_entrance(floors, n):
-    """
-    floors - число этажей в доме
-    n - номер квартиры
-    """
 
-    return 0
+    return 1+(n/FLATS_PER_FLOOR)//floors
 
 
 def find_floor(floors, n):
-    """
-    floors - число этажей в доме
-    n - номер квартиры
-    """
 
-    return 0
+    return 1+(n-((n/FLATS_PER_FLOOR)//floors)*FLATS_PER_FLOOR*floors)//FLATS_PER_FLOOR
 
 
 if __name__ == "__main__":
@@ -38,4 +30,4 @@ if __name__ == "__main__":
 
     entrance = find_entrance(floors, flat_num)
     floor = find_floor(floors, flat_num)
-    print(entrance, floor)
+    print('подъезд № ', entrance, ', этаж - ', floor)
