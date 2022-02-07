@@ -12,5 +12,16 @@
 """
 
 
-def last_but_one(pupils: list[(str, float)]) -> list[str]:
-    pass
+def last_but_one(pupils):
+    pupils = dict(pupils)
+    new_values = pupils.values()
+    sort_values = list(set((new_values)))
+    sort_values.sort(reverse=True)
+    b = sort_values[-2]
+    new_name = []
+    for keys, value in pupils.items():
+        if value == b:
+            new_name.append(keys)
+
+    new_name.sort()
+    return new_name

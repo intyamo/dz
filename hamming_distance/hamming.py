@@ -19,9 +19,7 @@ strand_b = CATCGTAATGACGGCCT
 Расстояние Хэмминга для данных цепочек = 7.
 """
 
-
 def hamming_distance(strand_a: str, strand_b: str) -> int:
-    if len(strand_a) != len(strand_b):
-        raise ValueError("Цепочки ДНК должны быть одинаковой длины")
+    res = [(x, y) for x, y in zip(strand_a, strand_b) if x != y]
+    return len(res)
 
-    pass
