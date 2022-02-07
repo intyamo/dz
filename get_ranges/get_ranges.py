@@ -10,4 +10,15 @@
 
 
 def get_ranges(l: list) -> str:
-    pass
+    num1 = num2 = " "
+    for i in sorted(l):
+        if num1 is None:
+            num1 = num2 = i
+        elif i == num2 or i == num2 + 1:
+            num2 = i
+        else:
+            yield num1, num2
+            num1 = num2 = i
+    if num1 is not None:
+        yield num1, num2
+    print(repr(", ".join(["%d" % num1 if num1 == num2 else "%d-%d" % (num1, num2) for (num1, num2) in get_ranges(l)])))
