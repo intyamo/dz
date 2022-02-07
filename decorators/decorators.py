@@ -13,8 +13,31 @@
 
 
 def repeat(n=2):
-    pass
+    def my_decorator(function_to_decorate):
+        def wrapped(*args, **kwargs):
+            for i in range(n):
+                result = function_to_decorate()
+            return result
+
+        return wrapped
+
+    return my_decorator
 
 
 def html(tag: str, **attributes):
-    pass
+    def my_decorator(function_to_decorate):
+        def wrapped(*args, **kwargs):
+            result = function_to_decorate()
+            dict_1 = ['']
+            for i, j in attributes.items():
+                if j != True and j != False:
+                    dict_1.append(str(i) + '=' + '"' + str(j) + '"')
+                else:
+                    dict_1.append(str(i))
+            result = '<' + tag + ' '.join(dict_1) + '>' + result + '</' + tag + '>'
+            print(result)
+            return result
+
+        return wrapped
+
+    return my_decorator
