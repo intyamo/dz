@@ -13,8 +13,27 @@
 
 
 def repeat(n=2):
-    pass
+    def dec(fun):
+        def wrapper(*args, **kwargs):
+            for i in range(n):
+                fun_n = fun(*args, **kwargs)
+            return fun_n
 
+        return wrapper
+
+    return dec
 
 def html(tag: str, **attributes):
-    pass
+    def dec(fun):
+        def wrapper(*args, **kwargs):
+            result_fun = fun(*args, **kwargs)
+            itog = ['']
+            for at_x, at_y in attributes.items():
+                itog.append(at_x) if at_y == True or at_y == False else itog.append(f'{at_x}="{at_y}"')
+            result_fun = f'<{tag}{" ".join(itog)}>{result_fun}</{tag}>'
+            return result_fun
+
+        return wrapper
+
+    return dec
+
