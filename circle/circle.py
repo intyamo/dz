@@ -5,16 +5,18 @@
 # Напишите программу, которая поможет Васе проверить его вычисления.
 
 
+from math import pi
+
 def perimeter(diameter):
-    pass
+    return pi * diameter
 
 
 def area(diameter):
-    pass
+    return pi * (diameter ** 2) / 4
 
 
 if __name__ == "__main__":
     d = int(input("Диаметр сковородки = "))
 
-    print(perimeter(d))
-    print(area(d))
+    print('периметр блина - ', perimeter(d))
+    print('площадь блина - ', area(d))
