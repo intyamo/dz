@@ -13,4 +13,21 @@
 
 
 def last_but_one(pupils: list[(str, float)]) -> list[str]:
-    pass
+    a = dict(pupils)
+    test = sorted(a.values())
+    list1 = {}
+    name = []
+    for i in test:
+        for j in a.keys():
+            if a[j] == i:
+                list1[j] = a[j]
+    sorted_list = list1.values()
+    new_sorted_list = list(set(sorted_list))
+    new_sorted_list.sort(reverse=True)
+    list2 = new_sorted_list[-2]
+    for k, v in list1.items():
+        if v == list2:
+            name.append(k)
+    name.sort()
+    return name
+

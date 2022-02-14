@@ -26,4 +26,12 @@ R = 3.0
 
 
 def polygon_vertices(n: int, r: float = R) -> list:
-    pass
+    angle1 = 2 * pi / n
+    angle2 = 0
+    cords = []
+    for i in range(n):
+        y = cos(angle2) * r
+        x = sin(angle2) * r
+        cords.append((x, y))
+        angle2 += angle1
+    return cords
