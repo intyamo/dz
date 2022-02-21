@@ -15,21 +15,11 @@ FLATS_PER_FLOOR = 4
 
 
 def find_entrance(floors, n):
-    """
-    floors - число этажей в доме
-    n - номер квартиры
-    """
-
-    return 0
+    return (n - 1) // (floors * FLATS_PER_FLOOR) + 1
 
 
 def find_floor(floors, n):
-    """
-    floors - число этажей в доме
-    n - номер квартиры
-    """
-
-    return 0
+    return (n - 1) % (floors * FLATS_PER_FLOOR) // 4 + 1
 
 
 if __name__ == "__main__":
