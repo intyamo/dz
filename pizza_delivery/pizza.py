@@ -10,23 +10,16 @@
 #
 # Для решения понадобится использовать деление по модулю %
 # или целочисленное деление //.
-import math
 
 FLATS_PER_FLOOR = 4
 
 
 def find_entrance(floors, n):
-    a = FLATS_PER_FLOOR * floors
-    math.ceil(n / a)
-    return math.ceil(n / a)
+    return (n - 1) // (floors * FLATS_PER_FLOOR) + 1
 
 
 def find_floor(floors, n):
-    entrance = math.ceil(n / (floors * FLATS_PER_FLOOR))
-    flats = floors * FLATS_PER_FLOOR
-    floor = (entrance - 1) * flats
-
-    return math.ceil((n-floor)/4)
+    return (n - 1) % (floors * FLATS_PER_FLOOR) // 4 + 1
 
 
 if __name__ == "__main__":
